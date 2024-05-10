@@ -13,6 +13,8 @@ app.use(morgan("dev"));
 // app.use(myMiddleware);
 // app.use(cors());
 
+const PORT = process.env.PORT;
+
 var corsOptions = {
   origin: process.env.FRONTEND_URL,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -44,6 +46,6 @@ app.get("/cat", cors(corsOptions), (request, response, next) => {
 app.get("/products/:id", function (req, res, next) {
   res.json({ msg: "This is CORS-enabled for all origins!" });
 });
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("port on 3000");
 });
